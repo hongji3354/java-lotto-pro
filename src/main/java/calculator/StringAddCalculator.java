@@ -14,7 +14,14 @@ public class StringAddCalculator {
             return Integer.parseInt(text);
         }
 
+        final String[] splitText = text.split(",");
 
-        return 1;
+        int sum = 0;
+
+        for (String str : splitText) {
+            sum += Integer.parseInt(str);
+        }
+
+        return sum;
     }
 }

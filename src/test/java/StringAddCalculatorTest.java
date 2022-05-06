@@ -32,4 +32,17 @@ class StringAddCalculatorTest {
         assertThat(sum).isEqualTo(1);
     }
 
+
+    @Test
+    @DisplayName("쉼표를 구분자로 가지는 문자열을 전달할 경우 쉼표를 기준으로 분리한 각 숫자의 합을 반환한다.")
+    void splitAndSum_쉼표() {
+        // given
+        String text = "1,2";
+
+        // when
+        int sum = StringAddCalculator.splitAndSum(text);
+
+        // then
+        assertThat(sum).isEqualTo(3);
+    }
 }
