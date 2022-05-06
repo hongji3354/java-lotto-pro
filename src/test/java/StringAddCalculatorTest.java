@@ -45,4 +45,31 @@ class StringAddCalculatorTest {
         // then
         assertThat(sum).isEqualTo(3);
     }
+
+    @Test
+    @DisplayName("콜론을 구분자로 가지는 문자열을 전달할 경우 콜론을 기준으로 분리한 각 숫자의 합을 반환한다.")
+    void splitAndSum_콜론() {
+        // given
+        String text = "1,2";
+
+        // when
+        int sum = StringAddCalculator.splitAndSum(text);
+
+        // then
+        assertThat(sum).isEqualTo(3);
+    }
+
+    @Test
+    @DisplayName("쉼표 또는 콜론을 구분자로 가지는 문자열을 전달할 경우 콜론을 기준으로 분리한 각 숫자의 합을 반환한다.")
+    void splitAndSum_쉼표_또는_콜론() {
+        // given
+        String text = "1,2:3";
+
+        // when
+        int sum = StringAddCalculator.splitAndSum(text);
+
+        // then
+        assertThat(sum).isEqualTo(6);
+    }
+
 }

@@ -14,7 +14,7 @@ public class StringAddCalculator {
             return Integer.parseInt(text);
         }
 
-        final String[] splitText = text.split(",");
+        final String[] splitText = text.split("[,|:]");
 
         int sum = 0;
 
