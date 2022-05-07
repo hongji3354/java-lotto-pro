@@ -14,15 +14,8 @@ public class Calculator {
 
     private int getSum(final String[] tokens) {
         for (String token : tokens) {
-            sum = getSum(token);
+            sum += StringParse.positiveParse(token);
         }
-        return sum;
-    }
-
-    private int getSum(final String token) {
-        final Integer parse = StringParse.positiveParse(token);
-        sum += parse;
-
         return sum;
     }
 }
