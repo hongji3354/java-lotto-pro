@@ -13,7 +13,7 @@ public class StringAddCalculator {
         }
 
         if (isLengthOne(text)) {
-            return Integer.parseInt(text);
+            return StringParse.positiveParse(text);
         }
 
         final StringSplit stringSplit = new StringSplit(text);

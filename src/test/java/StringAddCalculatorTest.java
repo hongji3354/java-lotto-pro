@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
@@ -45,7 +46,8 @@ class StringAddCalculatorTest {
         assertThat(sum).isEqualTo(6);
     }
 
-    @Test
+    @ParameterizedTest
+    @ValueSource(strings = {"1,2:가","가"})
     @DisplayName("숫자 이외의 값이 들어올 경우 RuntimeException 예외를 발생시킨다.")
     void splitAndSum_숫자_아닌_문자_예외() {
         // given
