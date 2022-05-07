@@ -72,4 +72,17 @@ class StringAddCalculatorTest {
         assertThat(sum).isEqualTo(6);
     }
 
+    @Test
+    @DisplayName("커스텀 구분자를 가질 수 있다")
+    void splitAndSum_커스텀_구분자() {
+        // given
+        String text = "//;\n1;2;3";
+
+        // when
+        int sum = StringAddCalculator.splitAndSum(text);
+
+        // then
+        assertThat(sum).isEqualTo(6);
+    }
+
 }
