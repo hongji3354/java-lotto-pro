@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 
 public class StringSplit {
 
+    private static final Pattern pattern = Pattern.compile("//(.)\n(.*)");
     private final String str;
 
     public StringSplit(final String str) {
@@ -12,7 +13,6 @@ public class StringSplit {
     }
 
     public String[] split() {
-        final Pattern pattern = Pattern.compile("//(.)\n(.*)");
         final Matcher matcher = pattern.matcher(str);
 
         if (matcher.find()) {
