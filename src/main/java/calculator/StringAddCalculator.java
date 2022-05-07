@@ -15,8 +15,7 @@ public class StringAddCalculator {
         }
 
         final StringSplit stringSplit = new StringSplit(text);
-        final String[] split = stringSplit.split();
-        final Calculator calculator = new Calculator(split);
+        final Calculator calculator = new Calculator(stringSplit.split());
 
         return calculator.sum();
     }
