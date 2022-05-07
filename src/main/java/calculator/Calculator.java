@@ -1,6 +1,7 @@
 package calculator;
 public class Calculator {
 
+    private int sum;
     private final String[] split;
 
     public Calculator(final String[] split) {
@@ -8,18 +9,17 @@ public class Calculator {
     }
 
     public int sum() {
-        int sum = 0;
-        return getSum(split, sum);
+        return getSum(split);
     }
 
-    private int getSum(final String[] tokens, int sum) {
+    private int getSum(final String[] tokens) {
         for (String token : tokens) {
-            sum = getSum(sum, token);
+            sum = getSum(token);
         }
         return sum;
     }
 
-    private int getSum(int sum, final String token) {
+    private int getSum(final String token) {
         try {
             final int i = Integer.parseInt(token);
             checkNumberNegetive(token, i);
