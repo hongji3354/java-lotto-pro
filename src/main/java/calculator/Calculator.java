@@ -20,19 +20,9 @@ public class Calculator {
     }
 
     private int getSum(final String token) {
-        try {
-            final int i = Integer.parseInt(token);
-            checkNumberNegative(token, i);
-            sum += i;
-        }catch (NumberFormatException e) {
-            throw new IllegalArgumentException("숫자만 가능합니다. 입력한 문자는 : " + token + "입니다.", e);
-        }
-        return sum;
-    }
+        final Integer parse = StringParse.positiveParse(token);
+        sum += parse;
 
-    private void checkNumberNegative(final String text, final int i) {
-        if (i < 0) {
-            throw new IllegalArgumentException("양수만 가능합니다. 입력한 숫자는 : " + text + "입니다.");
-        }
+        return sum;
     }
 }
