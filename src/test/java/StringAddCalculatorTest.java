@@ -5,6 +5,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 class StringAddCalculatorTest {
 
@@ -85,4 +86,14 @@ class StringAddCalculatorTest {
         assertThat(sum).isEqualTo(6);
     }
 
+    @Test
+    @DisplayName("숫자 이외의 값이 들어올 경우 RuntimeException 예외를 발생시킨다.")
+    void splitAndSum_숫자_아닌_문자_예외() {
+        // given
+        String text = "1,2:가";
+
+        // when and then
+        assertThatIllegalArgumentException().isThrownBy(() -> StringAddCalculator.splitAndSum(text))
+                .withMessage("숫자만 가능합니다. 입력한 문자는 : " + text + "입니다.");
+    }
 }
