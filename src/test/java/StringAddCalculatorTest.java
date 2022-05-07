@@ -93,8 +93,7 @@ class StringAddCalculatorTest {
         String text = "1,2:가";
 
         // when and then
-        assertThatIllegalArgumentException().isThrownBy(() -> StringAddCalculator.splitAndSum(text))
-                .withMessage("숫자만 가능합니다. 입력한 문자는 : " + text + "입니다.");
+        assertThatIllegalArgumentException().isThrownBy(() -> StringAddCalculator.splitAndSum(text));
     }
 
     @Test
@@ -104,7 +103,6 @@ class StringAddCalculatorTest {
         String text = "1,2:-3";
 
         // when
-        assertThatIllegalArgumentException().isThrownBy(() -> StringAddCalculator.splitAndSum(text))
-                .withMessage("양수만 가능합니다. 입력한 숫자는 : " + text + "입니다.");
+        assertThatIllegalArgumentException().isThrownBy(() -> StringAddCalculator.splitAndSum(text));
     }
 }
