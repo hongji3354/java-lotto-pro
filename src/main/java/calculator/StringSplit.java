@@ -6,20 +6,22 @@ import java.util.regex.Pattern;
 public class StringSplit {
 
     private static final Pattern pattern = Pattern.compile("//(.)\n(.*)");
-    private final String str;
+    private static final int CUSTOM_DELIMITER_INDEX = 1;
+    private static final int CUSTOM_DELIMITER_TEXT_INDEX = 2;
+    private final String token;
 
-    public StringSplit(final String str) {
-        this.str = str;
+    public StringSplit(final String token) {
+        this.token = token;
     }
 
     public String[] split() {
-        final Matcher matcher = pattern.matcher(str);
+        final Matcher matcher = pattern.matcher(token);
 
         if (matcher.find()) {
-            String customDelimiter = matcher.group(1);
-            return matcher.group(2).split(customDelimiter);
+            String customDelimiter = matcher.group(CUSTOM_DELIMITER_INDEX);
+            return matcher.group(CUSTOM_DELIMITER_TEXT_INDEX).split(customDelimiter);
         }
 
-        return str.split("[,|:]");
+        return token.split("[,|:]");
     }
 }
