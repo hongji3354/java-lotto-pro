@@ -9,10 +9,6 @@ public class Calculator {
     }
 
     public int sum() {
-        return getSum(tokens);
-    }
-
-    private int getSum(final String[] tokens) {
         for (String token : tokens) {
             sum += StringParse.positiveParse(token);
         }
