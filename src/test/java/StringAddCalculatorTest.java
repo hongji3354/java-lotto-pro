@@ -96,4 +96,15 @@ class StringAddCalculatorTest {
         assertThatIllegalArgumentException().isThrownBy(() -> StringAddCalculator.splitAndSum(text))
                 .withMessage("숫자만 가능합니다. 입력한 문자는 : " + text + "입니다.");
     }
+
+    @Test
+    @DisplayName("음수가 들어올 경우 RuntimeException 예외를 발생시킨다.")
+    void splitAndSum_음수_예외() {
+        // given
+        String text = "1,2:-3";
+
+        // when
+        assertThatIllegalArgumentException().isThrownBy(() -> StringAddCalculator.splitAndSum(text))
+                .withMessage("양수만 가능합니다. 입력한 숫자는 : " + text + "입니다.");
+    }
 }

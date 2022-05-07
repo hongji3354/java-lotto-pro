@@ -27,7 +27,11 @@ public class StringAddCalculator {
 
             for (String token : tokens) {
                 try {
-                    sum += Integer.parseInt(token);
+                    final int i = Integer.parseInt(token);
+                    if (i<0) {
+                        throw new IllegalArgumentException("양수만 가능합니다. 입력한 숫자는 : " + text + "입니다.");
+                    }
+                    sum += i;
                 }catch (NumberFormatException e) {
                     throw new IllegalArgumentException("숫자만 가능합니다. 입력한 문자는 : " + text + "입니다.", e);
                 }
@@ -42,7 +46,11 @@ public class StringAddCalculator {
 
         for (String str : splitText) {
             try {
-                sum += Integer.parseInt(str);
+                final int i = Integer.parseInt(str);
+                if (i<0) {
+                    throw new IllegalArgumentException("양수만 가능합니다. 입력한 숫자는 : " + text + "입니다.");
+                }
+                sum += i;
             }catch (NumberFormatException e) {
                 throw new IllegalArgumentException("숫자만 가능합니다. 입력한 문자는 : " + text + "입니다.", e);
             }
