@@ -16,8 +16,12 @@ public class StringParse {
     }
 
     private static void checkNumberNegative(final String text, final int i) {
-        if (i < 0) {
+        if (isNegative(i)) {
             throw new IllegalArgumentException("양수만 가능합니다. 입력한 숫자는 : " + text + "입니다.");
         }
+    }
+
+    private static boolean isNegative(final int i) {
+        return i < 0;
     }
 }
